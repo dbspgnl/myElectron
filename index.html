@@ -8,17 +8,26 @@
     <title>My Electron</title>
 </head>
 <body>
-    electron test
-    <h2 id="clock">00:00</h2>
-    <div id="weather">
-        <span></span>
-        <span></span>
+    <div id="body-layout">
+        <div id="header-layout">
+            <div id="weather">
+                <span>날씨</span>
+                <span></span>
+            </div>
+        </div>
+        <div id="main-header">
+            <div id="clock">00:00</div>
+        </div>
+        <div id="main-body">
+            <form id="todo-form">
+                <input type="text" placeholder="Write a To do and Press Enter" required />
+            </form>
+            <ul id="todo-list"></ul>
+        </div>
+        <div id="footer-layout">
+            <button onclick="window.open('링크')">클릭</button>
+        </div>
     </div>
-    <form id="todo-form">
-        <input type="text" placeholder="Write a To do and Press Enter" required />
-    </form>
-    <ul id="todo-list"></ul>
-    <hr>
     <script src="js/clock.js"></script>
     <script src="js/background.js"></script>
     <script src="js/weather.js"></script>
