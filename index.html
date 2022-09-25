@@ -8,29 +8,34 @@
     <title>My Electron</title>
 </head>
 <body>
-    <div id="body-layout">
-        <div id="header-layout">
-            <div id="weather">
-                <span>날씨</span>
-                <span></span>
+    <img id="body-background">
+    <div id="body-content">
+        <div id="body-layout">
+            <div id="header-layout">
+                <div id="weather">
+                    <span>날씨</span>
+                    <span></span>
+                </div>
             </div>
-        </div>
-        <div id="main-header">
-            <div id="clock">00:00</div>
-        </div>
-        <div id="main-body">
-            <form id="todo-form">
-                <input type="text" placeholder="Write a To do and Press Enter" required />
-            </form>
-            <ul id="todo-list"></ul>
-        </div>
-        <div id="footer-layout">
-            <button onclick="window.open('링크')">클릭</button>
+            <div id="main-header">
+                <div id="clock">00:00</div>
+            </div>
+            <div id="main-body">
+                <form id="todo-form">
+                    <input type="text" placeholder="Write a To do and Press Enter" required />
+                </form>
+                <ul id="todo-list"></ul>
+            </div>
+            <div id="footer-layout">
+                <!-- <button onclick="window.open('링크')">클릭</button> -->
+                <button onclick="reload()">R</button>
+            </div>
         </div>
     </div>
     <script src="js/clock.js"></script>
     <script src="js/background.js"></script>
     <script src="js/weather.js"></script>
     <script src="js/todo.js"></script>
+    <script>function reload(){location.reload()}</script>
 </body>
 </html>
