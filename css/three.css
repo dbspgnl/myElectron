@@ -1,0 +1,11 @@
+body {
+    margin: 0;
+}
+
+#canvas_body {
+    display: flex;
+    height: 100vh;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}

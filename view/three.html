@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/three.css">
+</head>
+<body>
+    <div id="canvas_body">
+        <canvas id="canvas" width="530" height="530"></canvas>
+    </div>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.141.0/build/three.module.js",
+                "GLTFLoader" : "https://unpkg.com/three@0.141.0/examples/jsm/loaders/GLTFLoader.js"
+            }
+        }
+    </script>
+    <script type="module">
+        import {GLTFLoader} from 'GLTFLoader';
+        import * as THREE from 'three';
+
+        let scene = new THREE.Scene();
+        let renderer = new THREE.WebGLRenderer({
+            canvas : document.querySelector('#canvas'),
+            antialias : true
+        });
+        renderer.outputEncoding = THREE.sRGBEncoding;
+
+        let camera = new THREE.PerspectiveCamera(30, 1);
+        camera.position.set(0,0,6);
+        // camera : 1.PerspectiveCamera(원근법) / 2. OrthographicCamera(비원근법)
+
+        scene.background = new THREE.Color('white');
+        // let light = new THREE.DirectionalLight(0xffff00, 10);
+        // scene.add(light);
+
+        let loader = new GLTFLoader();
+        loader.load('../obj/shiba/scene.gltf', (gltf)=>{
+            scene.add(gltf.scene);
+
+            function animate() {
+                requestAnimationFrame(animate);
+                gltf.scene.rotation.y -= 0.01;
+                renderer.render(scene, camera);
+            };
+            animate();
+        });
+
+        // 컨트롤
+        // three.js orbitControl
+
+    </script>
+</body>
+</html>
