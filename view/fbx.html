@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body {
+            margin: 0;
+        }
+    </style>
+    <div id="canvas_body"></div>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.141.0/build/three.module.js",
+                "FBXLoader": "https://unpkg.com/browse/three@0.141.0/examples/jsm/loaders/FBXLoader.js"
+            }
+        }
+    </script>
+    <script type="module">
+        import { FBXLoader } from 'FBXLoader';
+        import * as THREE from 'three';
+        
+        // fbx 아직 미구현
+        let scene = new THREE.Scene();
+
+        const renderer = new THREE.WebGLRenderer( { antialias: true } );
+        renderer.setSize( window.innerWidth, window.innerHeight );
+        renderer.setAnimationLoop( animation );
+        document.querySelector("#canvas_body").appendChild( renderer.domElement );
+
+        let camera = new THREE.PerspectiveCamera(30, 1);
+        camera.position.set(0,0,6);
+        scene.background = new THREE.Color('white');
+        const loader = new THREE.FBXLoader();
+
+        
+        loader.load("../obj/shiba_fbx/source/1.FBX", model => {                          
+            const mixer = new THREE.AnimationMixer(model);         
+            mixer.clipAction(model.animations[0]).play();
+            scene.add(model);
+            objs.push({model, mixer});
+        });
+
+    </script>
+</body>
+</html>
