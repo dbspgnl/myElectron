@@ -28,11 +28,12 @@
             </div>
             <div id="footer-layout">
                 <!-- <button onclick="window.open('링크')">클릭</button> -->
-                <button onclick="reload()">Re</button>
-                <button onclick="three()">Sh</button>
+                <button onclick="reload()">🔄</button>
+                <button onclick="three()">🐕</button>
                 <button onclick="rectangle()">⬜</button>
-                <button onclick="fbx()">Fbx</button>
-                <button onclick="obj()">Obj</button>
+                <button onclick="fbx()">fbx</button>
+                <button onclick="obj()">🐱</button>
+                <button onclick="chase()">🚶‍♂️</button>
             </div>
         </div>
     </div>
@@ -66,6 +67,14 @@
         function obj() {
             window.open(
                 "view/obj.html",
+                "Child",
+                "width=600, height=600"
+            );
+        }
+        function chase() {
+            // location.href = "view/chase.html"
+            window.open(
+                "view/chase.html",
                 "Child",
                 "width=600, height=600"
             );
