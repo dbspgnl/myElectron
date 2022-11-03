@@ -7,6 +7,7 @@ const createWindow = () => {
         icon: "img/icon.ico"
     });
     window.loadFile("index.html");
+    win.webContents.openDevTools();
     
     // 커스텀 메뉴 템플릿
     const template = [

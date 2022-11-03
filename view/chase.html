@@ -4,7 +4,7 @@
 	<title>Chase Camera (Three.js)</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-	<link rel=stylesheet href="/css/threejs/base.css"/>
+	<link rel=stylesheet href="../css/threejs/base.css"/>
 </head>
 <body>
 <style>
@@ -13,20 +13,20 @@
 	} */
 </style>
 
-<script src="/js/threejs/Three.js"></script>
-<script src="/js/threejs/Detector.js"></script>
-<script src="/js/threejs/Stats.js"></script>
-<script src="/js/threejs/OrbitControls.js"></script>
-<script src="/js/threejs/THREEx.KeyboardState.js"></script>
-<script src="/js/threejs/THREEx.FullScreen.js"></script>
-<script src="/js/threejs/THREEx.WindowResize.js"></script>
+<script src="../js/threejs/Three.js"></script>
+<script src="../js/threejs/Detector.js"></script>
+<script src="../js/threejs/Stats.js"></script>
+<script src="../js/threejs/OrbitControls.js"></script>
+<script src="../js/threejs/THREEx.KeyboardState.js"></script>
+<script src="../js/threejs/THREEx.FullScreen.js"></script>
+<script src="../js/threejs/THREEx.WindowResize.js"></script>
 
 <!-- jQuery code to display an information button and box when clicked. -->
-<script src="/js/threejs/jquery-1.9.1.js"></script>
-<script src="/js/threejs/jquery-ui.js"></script>
-<link rel=stylesheet href="/css/threejs/jquery-ui.css" />
-<link rel=stylesheet href="/css/threejs/info.css"/>
-<script src="/js/threejs/info.js"></script>
+<script src="../js/threejs/jquery-1.9.1.js"></script>
+<script src="../js/threejs/jquery-ui.js"></script>
+<link rel=stylesheet href="../css/threejs/jquery-ui.css" />
+<link rel=stylesheet href="../css/threejs/info.css"/>
+<script src="../js/threejs/info.js"></script>
 <div id="infoButton"></div>
 <div id="infoBox" title="Demo Information">
 	Movement controls: <br/>
@@ -94,7 +94,7 @@ function init()
 	light.position.set(0,250,0);
 	scene.add(light);
 	// FLOOR
-	var floorTexture = new THREE.ImageUtils.loadTexture( '/img/threejs/checkerboard.jpg' );
+	var floorTexture = new THREE.ImageUtils.loadTexture( '../img/threejs/checkerboard.jpg' );
 	floorTexture.wrapS = floorTexture.wrapT = THREE.RepeatWrapping; 
 	floorTexture.repeat.set( 10, 10 );
 	var floorMaterial = new THREE.MeshBasicMaterial( { map: floorTexture, side: THREE.DoubleSide } );
@@ -116,12 +116,12 @@ function init()
 	
 	// create an array with six textures for a cool cube
 	var materialArray = [];
-	materialArray.push(new THREE.MeshBasicMaterial( { map: THREE.ImageUtils.loadTexture( '/img/threejs/xpos.png' ) }));
-	materialArray.push(new THREE.MeshBasicMaterial( { map: THREE.ImageUtils.loadTexture( '/img/threejs/xneg.png' ) }));
-	materialArray.push(new THREE.MeshBasicMaterial( { map: THREE.ImageUtils.loadTexture( '/img/threejs/ypos.png' ) }));
-	materialArray.push(new THREE.MeshBasicMaterial( { map: THREE.ImageUtils.loadTexture( '/img/threejs/yneg.png' ) }));
-	materialArray.push(new THREE.MeshBasicMaterial( { map: THREE.ImageUtils.loadTexture( '/img/threejs/zpos.png' ) }));
-	materialArray.push(new THREE.MeshBasicMaterial( { map: THREE.ImageUtils.loadTexture( '/img/threejs/zneg.png' ) }));
+	materialArray.push(new THREE.MeshBasicMaterial( { map: THREE.ImageUtils.loadTexture( '../img/threejs/xpos.png' ) }));
+	materialArray.push(new THREE.MeshBasicMaterial( { map: THREE.ImageUtils.loadTexture( '../img/threejs/xneg.png' ) }));
+	materialArray.push(new THREE.MeshBasicMaterial( { map: THREE.ImageUtils.loadTexture( '../img/threejs/ypos.png' ) }));
+	materialArray.push(new THREE.MeshBasicMaterial( { map: THREE.ImageUtils.loadTexture( '../img/threejs/yneg.png' ) }));
+	materialArray.push(new THREE.MeshBasicMaterial( { map: THREE.ImageUtils.loadTexture( '../img/threejs/zpos.png' ) }));
+	materialArray.push(new THREE.MeshBasicMaterial( { map: THREE.ImageUtils.loadTexture( '../img/threejs/zneg.png' ) }));
 	var MovingCubeMat = new THREE.MeshFaceMaterial(materialArray);
 	var MovingCubeGeom = new THREE.CubeGeometry( 50, 50, 50, 1, 1, 1, materialArray );
 	MovingCube = new THREE.Mesh( MovingCubeGeom, MovingCubeMat );
