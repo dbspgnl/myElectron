@@ -4,9 +4,9 @@ const createWindow = () => {
     const window = new BrowserWindow({
         width: 900,
         height: 600,
-        icon: "img/icon.ico"
+        icon: "src/img/icon.ico"
     });
-    window.loadFile("index.html");
+    window.loadFile("src/index.html");
     win.webContents.openDevTools();
     
     // 커스텀 메뉴 템플릿
