@@ -21,8 +21,9 @@ function paintTodo(newTodoObj) {
     li.id = newTodoObj.id;
     const span = document.createElement("span");
     span.innerText = newTodoObj.text;
+    span.style.cssText = `background: radial-gradient(rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.2))`;
     const button = document.createElement("span");
-    button.innerText = "❌";
+    button.innerHTML = ` <i class="bi bi-x-square"></i>`;
     button.style.cursor = "pointer";
     button.addEventListener("click", deleteToDo)
     li.appendChild(span);

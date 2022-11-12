@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <title>My Electron</title>
 </head>
 <body>
@@ -22,27 +25,70 @@
             </div>
             <div id="main-body">
                 <form id="todo-form">
-                    <input type="text" placeholder="Write a To do and Press Enter" required />
+                    <input type="text" class="form-control" placeholder="Write a To do and Press Enter" required />
                 </form>
                 <ul id="todo-list"></ul>
             </div>
             <div id="footer-layout">
-                <!-- <button onclick="window.open('링크')">클릭</button> -->
-                <button onclick="reload()">🔄</button>
-                <button onclick="three()">🐕</button>
-                <button onclick="rectangle()">⬜</button>
-                <button onclick="obj()">🐱</button>
-                <button onclick="chase()">🚶‍♂️</button>
-                <button onclick="mine()">⛏</button>
+                <button id="threeToastBtn" type="button" class="main-btn btn btn-outline-light" title="3D"><i class="bi bi-box"></i></button>
+                <button id="chklistToastBtn" type="button" class="main-btn btn btn-outline-light" title="Check List"><i class="bi bi-card-checklist"></i></button>
+                <button id="txtSearchToastBtn" type="button" class="main-btn btn btn-outline-light" title="Text Search"><i class="bi bi-search"></i></button>
             </div>
+
+            <!-- Flexbox container for aligning the toasts -->
+            <div style="position: absolute;">
+                <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center w-100">
+                    <div id="threeToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                        <strong class="me-auto">3D</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                        <button type="button" class="main-btn btn btn-outline-dark" onclick="three()">🐕</button>
+                        <button type="button" class="main-btn btn btn-outline-dark" onclick="rectangle()">⬜</button>
+                        <button type="button" class="main-btn btn btn-outline-dark" onclick="obj()">🐱</button>
+                        <button type="button" class="main-btn btn btn-outline-dark" onclick="chase()">🚶‍♂️</button>
+                        <button type="button" class="main-btn btn btn-outline-dark" onclick="mine()">⛏</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div style="position: absolute;">
+                <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center w-100">
+                    <div id="chklistToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                        <strong class="me-auto">Check List</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body" style="color: black;">
+                        체크 리스트
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div style="position: absolute;">
+                <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center w-100">
+                    <div id="txtSearchToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                        <strong class="me-auto">Text Search</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body" style="color: black;">
+                        텍스트 서치
+                    </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
+
     <script src="js/clock.js"></script>
     <script src="js/background.js"></script>
     <script src="js/weather.js"></script>
     <script src="js/todo.js"></script>
+    <script src="js/toast.js"></script>
     <script>
-        function reload(){location.reload()}
         function three() {
             window.open(
                 "view/three.html",
@@ -78,6 +124,7 @@
                 "width=600, height=600"
             );
         }
+
     </script>
 </body>
 </html>
